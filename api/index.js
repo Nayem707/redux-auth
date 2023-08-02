@@ -5,7 +5,9 @@ const cookieParser = require('cookie-parser');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const port = dev.app.port;
 const app = express();
+const cors = require('cors');
 
+app.use(cors());
 //USERS ROUTER
 const userRoute = require('./router/userRoute');
 
