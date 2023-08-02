@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from './postURL';
-import SideBar from '../../components/sidebar/SideBar';
 
 // import UserCart from '../../components/UserCart';
 
 const PostsView = () => {
-  const { userInfo } = useSelector((state) => state.auth);
-
   const { isLoading, posts, error } = useSelector((state) => state.posts);
   console.log(posts);
   const dispatch = useDispatch();
@@ -18,7 +15,6 @@ const PostsView = () => {
 
   return (
     <section>
-      {userInfo && <SideBar />}
       {posts &&
         posts.map((p) => {
           const { id, name } = p;
