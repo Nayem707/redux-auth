@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './slice/authSlice';
-import { apiSlice } from './slice/apiSlice';
+import authReducer from './featuers/users/authSlice';
+import { apiSlice } from './featuers/users/apiSlice';
+import postsReducer from './featuers/posts/postsSlice';
 
 const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
     auth: authReducer,
+    posts: postsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),

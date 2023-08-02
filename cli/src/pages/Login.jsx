@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLoginMutation } from '../slice/userApiSlice';
-import { setCredentials } from '../slice/authSlice';
+import { useLoginMutation } from '../featuers/users/userApiSlice';
+import { setCredentials } from '../featuers/users/authSlice';
 import { toast } from 'react-toastify';
 import Loader from '../components/Loader';
 
@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      <h3>Login here!</h3>
 
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='email'>
@@ -67,7 +67,7 @@ const Login = () => {
           variant='primary'
           className='mt-3'
         >
-          Sign In
+          Login
         </Button>
       </Form>
 

@@ -4,8 +4,8 @@ import FormContainer from '../components/FormContainer';
 import Loader from '../components/Loader';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRegisterMutation } from '../slice/userApiSlice';
-import { setCredentials } from '../slice/authSlice';
+import { useRegisterMutation } from '../featuers/users/userApiSlice';
+import { setCredentials } from '../featuers/users/authSlice';
 import { toast } from 'react-toastify';
 
 const Register = () => {
@@ -44,7 +44,7 @@ const Register = () => {
   };
   return (
     <FormContainer>
-      <h1>Register</h1>
+      <h3>Registration Form</h3>
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='name'>
           <Form.Label>Name</Form.Label>
@@ -86,7 +86,7 @@ const Register = () => {
         </Form.Group>
 
         <Button type='submit' variant='primary' className='mt-3'>
-          Register
+          Submit
         </Button>
 
         {isLoading && <Loader />}

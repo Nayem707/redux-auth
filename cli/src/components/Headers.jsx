@@ -1,11 +1,11 @@
 // import { Navbar, Nav, Container, NavDropdown, Badge } from 'react-bootstrap';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaSignInAlt, FaSignOutAlt, FaUserEdit } from 'react-icons/fa';
 import { LinkContainer } from 'react-router-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useLogoutMutation } from '../slice/userApiSlice';
-import { logout } from '../slice/authSlice';
+import { useLogoutMutation } from '../featuers/users/userApiSlice';
+import { logout } from '../featuers/users/authSlice';
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -30,19 +30,30 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>MERN Auth</Navbar.Brand>
+            <Navbar.Brand>NBlog</Navbar.Brand>
           </LinkContainer>
+
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
               {userInfo ? (
                 <>
+                  <LinkContainer to='/blogs'>
+                    <Nav.Link>Blogs</Nav.Link>
+                  </LinkContainer>{' '}
+                  <LinkContainer to='/posts'>
+                    <Nav.Link>News</Nav.Link>
+                  </LinkContainer>
                   <NavDropdown title={userInfo.name} id='username'>
                     <LinkContainer to='/profile'>
-                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                      <NavDropdown.Item>
+                        <FaUserEdit />
+                        <span className='p-2'>Profile</span>
+                      </NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Item onClick={logoutHandler}>
-                      Logout
+                      <FaSignOutAlt />
+                      <span className='p-2'>Logout</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
@@ -50,12 +61,12 @@ const Header = () => {
                 <>
                   <LinkContainer to='/login'>
                     <Nav.Link>
-                      <FaSignInAlt /> Sign In
+                      <FaSignInAlt /> Login
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to='/register'>
                     <Nav.Link>
-                      <FaSignOutAlt /> Sign Up
+                      <FaSignOutAlt /> SignUp
                     </Nav.Link>
                   </LinkContainer>
                 </>

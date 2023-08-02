@@ -3,22 +3,25 @@ import ReactDOM from 'react-dom/client';
 import store from './store.js';
 import { Provider } from 'react-redux';
 
+import './index.css';
+import { RouterProvider } from 'react-router-dom';
+
 import {
+  Route,
   createBrowserRouter,
   createRoutesFromElements,
-  Route,
-  RouterProvider,
 } from 'react-router-dom';
-import './index.css';
 
-import App from './App.jsx';
+import App from './App';
 import Home from './pages/Home';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
-import Profile from './pages/Profile.jsx';
-import PrivateRoute from './components/PrivateRoute.jsx';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Profile from './pages/Profile';
+import Blogs from './pages/Blogs';
+import PostsView from './featuers/posts/PostsView.jsx';
+import PrivateRoute from './components/PrivateRoute';
 
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
@@ -26,15 +29,16 @@ const router = createBrowserRouter(
       <Route path='/register' element={<Register />} />
       <Route path='' element={<PrivateRoute />}>
         <Route path='/profile' element={<Profile />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/posts' element={<PostsView />} />
       </Route>
     </Route>
   )
 );
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    </React.StrictMode>
-  </Provider>
+    </Provider>
+  </React.StrictMode>
 );
