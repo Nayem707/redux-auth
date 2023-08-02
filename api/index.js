@@ -21,6 +21,10 @@ app.use('/api/users', userRoute);
 app.use(notFound);
 app.use(errorHandler);
 
+app.get('/', (res, req) => {
+  res.send('wellcome home!');
+});
+
 //SERVER RUNING CODE
 app.listen(port, async () => {
   console.log(`server run http://localhost:${port}`);
