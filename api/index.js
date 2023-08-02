@@ -7,7 +7,11 @@ const port = dev.app.port;
 const app = express();
 const cors = require('cors');
 
-app.use(cors());
+app.use(
+  cors({
+    origin: 'https://redux-auth-mern.vercel.app/',
+  })
+);
 //USERS ROUTER
 const userRoute = require('./router/userRoute');
 
