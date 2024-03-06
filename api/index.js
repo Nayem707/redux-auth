@@ -9,7 +9,7 @@ const cors = require('cors');
 
 app.use(
   cors({
-    origin: 'https://redux-auth-mern.vercel.app/',
+    origin: 'https://www.section.io',
   })
 );
 //USERS ROUTER

@@ -14,9 +14,7 @@ const Profile = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const dispatch = useDispatch();
-
   const { userInfo } = useSelector((state) => state.auth);
-
   const [updateProfile, { isLoading }] = useUpdateUserMutation();
 
   useEffect(() => {
