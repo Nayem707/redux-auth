@@ -42,6 +42,7 @@ const Register = () => {
       }
     }
   };
+  
   return (
     <FormContainer>
       <h3>Registration Form</h3>

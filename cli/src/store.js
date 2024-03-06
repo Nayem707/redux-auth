@@ -9,6 +9,7 @@ const store = configureStore({
     auth: authReducer,
     posts: postsReducer,
   },
+  
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
   devTools: true,

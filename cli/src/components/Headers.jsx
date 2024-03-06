@@ -40,7 +40,7 @@ const Header = () => {
                 <>
                   <LinkContainer to='/blogs'>
                     <Nav.Link>Blogs</Nav.Link>
-                  </LinkContainer>{' '}
+                  </LinkContainer>
                   <LinkContainer to='/posts'>
                     <Nav.Link>News</Nav.Link>
                   </LinkContainer>
